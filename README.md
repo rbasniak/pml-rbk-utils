@@ -1,2 +1,2 @@
 # rbk-pml-utils
-Utility function for PML language
+Utility functions for PML language
