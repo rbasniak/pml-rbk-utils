@@ -1,0 +1,33 @@
+call !!rbkPmlNetImporter('rbkRunMacroControl', true)
+
+setup form !!rbkRunMacro resizable
+  title 'Run Macro v1.0.0 - https://github.com/rbasniak'
+  using namespace 'rbkUtilities'
+  container .elementHost nobox PmlNetControl 'control' anchor all width 50 height 17.5
+  member .control is rbkRunMacroControl
+exit
+
+define method .rbkRunMacro()
+  using namespace 'rbkUtilities'
+  !this.control = object rbkRunMacroControl()
+  !this.elementHost.control = !this.control.handle()
+  !this.control.addeventhandler('RunMacro', !this, 'run')
+  !this.initcall = '!this.init()'
+Endmethod
+
+define method .init()
+  !avevaUser = !!evarSplit('AVEVA_DESIGN_USER')
+  !this.control.setup(!avevaUser[1])
+endmethod
+
+define method .run(!data is ARRAY)
+  !macro = !data[0]
+  !clearCmdBeforeRun = !data[1]
+
+  if !clearCmdBeforeRun then
+    ALPHA REQUESTS CLEAR
+  endif
+
+  $M'$!macro'
+endmethod
+

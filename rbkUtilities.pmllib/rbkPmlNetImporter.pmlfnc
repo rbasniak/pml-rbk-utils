@@ -1,0 +1,83 @@
+$(
+  ---------------------------------------------------------------------------------------------------------------------
+  LICENSE
+  ---------------------------------------------------------------------------------------------------------------------
+  Copyright 2020 @rbasniak (https://github.com/rbasniak)
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
+  to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+  the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+  THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+  ---------------------------------------------------------------------------------------------------------------------
+  DOCUMENTATION
+  ---------------------------------------------------------------------------------------------------------------------
+  * VERSION
+      v1.0.0
+
+  * DESCRIPTION
+      Function to help locate PML.NET libraries that should be imported from PML code, eliminating the need to store
+      the library in the %PDMS_EXE% folder or using hardcoded paths.
+
+      The library is searched in all path in the PMLLIB environment variable
+
+      If multiple files with the same name are found, the first file found will be used and a warning will be printed
+      in the command window
+
+  * INPUTS
+      -> !filename [STRING]: the filename to be searched
+      -> !stopOnFirst [BOOLEAN]: flag to determine if the search should stop on first PMLLIB in which a file was found
+
+  * OUTPUT
+      None
+
+  * USAGE
+      -> Instead of importing the library like this:
+
+          import 'C:\mypath\myLibrary'
+          handle (1000,0)
+          endhandle
+
+      -> Import it like this:
+
+          call !!rbkPmlNetImporter('rbkStruct')
+$)
+
+define function !!rbkPmlNetImporter(!filename is STRING, !stopOnFirst is BOOLEAN)
+  !extension = '.dll'
+  var !pmllib evar 'PMLLIB'
+  !folders = !pmllib.split(';')
+  !results = ARRAY()
+  do !i from 1 to !folders.size()
+    if !stopOnFirst and !results.size() gt 0 then
+      skip
+    endif
+
+    !results.appendArray(!!rbkFindFilesInFolder(!folders[!i], '$!filename$!extension'))
+  enddo
+
+  if !results.size() eq 0 then
+    !!alert.error('.NET dll file not found')
+    return
+  endif
+
+  if !results.size() gt 1 then
+    $P WARNING: More than one file found, using '$!results[1]'
+  endif
+
+  !library = !results[1].replace(!extension, '', -1, 1)
+
+  import '$!library'
+  handle (1000,0)
+  elsehandle any
+    !!alert.error('Unknown error while importing $!name')
+  endhandle
+endfunction
