@@ -40,7 +40,7 @@
             // ClearButton
             // 
             this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearButton.Location = new System.Drawing.Point(321, 392);
+            this.ClearButton.Location = new System.Drawing.Point(347, 299);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 23);
             this.ClearButton.TabIndex = 0;
@@ -53,6 +53,7 @@
             this.CodeInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.CodeInput.AutoCompleteBrackets = true;
             this.CodeInput.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -64,6 +65,7 @@
         '\"',
         '\'',
         '\''};
+            this.CodeInput.AutoIndentExistingLines = false;
             this.CodeInput.AutoScrollMinSize = new System.Drawing.Size(25, 13);
             this.CodeInput.BackBrush = null;
             this.CodeInput.CharHeight = 13;
@@ -72,20 +74,25 @@
             this.CodeInput.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.CodeInput.Font = new System.Drawing.Font("Courier New", 9F);
             this.CodeInput.IsReplaceMode = false;
+            this.CodeInput.LeftBracket = '(';
+            this.CodeInput.LeftBracket2 = '[';
             this.CodeInput.Location = new System.Drawing.Point(0, 0);
             this.CodeInput.Name = "CodeInput";
             this.CodeInput.Paddings = new System.Windows.Forms.Padding(0);
+            this.CodeInput.RightBracket = ')';
+            this.CodeInput.RightBracket2 = ']';
             this.CodeInput.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.CodeInput.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("CodeInput.ServiceColors")));
-            this.CodeInput.Size = new System.Drawing.Size(396, 378);
+            this.CodeInput.Size = new System.Drawing.Size(422, 285);
             this.CodeInput.TabIndex = 1;
+            this.CodeInput.TabLength = 2;
             this.CodeInput.Zoom = 100;
             this.CodeInput.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.CodeInput_TextChanged);
             // 
             // RunMacroButton
             // 
             this.RunMacroButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RunMacroButton.Location = new System.Drawing.Point(3, 392);
+            this.RunMacroButton.Location = new System.Drawing.Point(3, 299);
             this.RunMacroButton.Name = "RunMacroButton";
             this.RunMacroButton.Size = new System.Drawing.Size(75, 23);
             this.RunMacroButton.TabIndex = 2;
@@ -95,8 +102,9 @@
             // 
             // ClearCmdBeforeRunCheckbox
             // 
+            this.ClearCmdBeforeRunCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ClearCmdBeforeRunCheckbox.AutoSize = true;
-            this.ClearCmdBeforeRunCheckbox.Location = new System.Drawing.Point(85, 397);
+            this.ClearCmdBeforeRunCheckbox.Location = new System.Drawing.Point(85, 304);
             this.ClearCmdBeforeRunCheckbox.Name = "ClearCmdBeforeRunCheckbox";
             this.ClearCmdBeforeRunCheckbox.Size = new System.Drawing.Size(193, 17);
             this.ClearCmdBeforeRunCheckbox.TabIndex = 3;
@@ -112,7 +120,7 @@
             this.Controls.Add(this.CodeInput);
             this.Controls.Add(this.ClearButton);
             this.Name = "rbkRunMacroControl";
-            this.Size = new System.Drawing.Size(399, 418);
+            this.Size = new System.Drawing.Size(425, 325);
             this.Enter += new System.EventHandler(this.RunMacroControl_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.CodeInput)).EndInit();
             this.ResumeLayout(false);

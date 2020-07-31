@@ -12,6 +12,9 @@ using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 using System.IO;
 using Aveva.Core.Database;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace rbkUtilities
 {
@@ -51,6 +54,11 @@ namespace rbkUtilities
             }
 
             var filename = _userFolder + "macro.rbkpml";
+
+            if (!File.Exists(filename))
+            {
+                File.WriteAllText(filename, string.Empty);
+            }
 
             CodeInput.Text = File.ReadAllText(filename);
         }
