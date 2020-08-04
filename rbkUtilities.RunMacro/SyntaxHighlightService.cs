@@ -60,7 +60,7 @@ namespace rbkUtilities
             // --
 
             //clear style of changed range
-            e.ChangedRange.ClearStyle(Queries, Strings, Methods, Keywords, PrintedStrings, StructuralKeywords, Numbers, Comments, GlobalVariables, LocalVariables);
+            e.ChangedRange.ClearStyle(Queries, Strings, Methods, Keywords, PrintedStrings, StructuralKeywords, Numbers, GlobalVariables, LocalVariables);
             
             // --
 
@@ -93,11 +93,11 @@ namespace rbkUtilities
             e.ChangedRange.SetStyle(StructuralKeywords, @"^(define\s+method|define\s+function|define\s+object|setup\s+form|exit|endmethod|endfunction|endobject)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             //other important commands
-            e.ChangedRange.SetStyle(StructuralKeywords, @"^\s*(pml\s+reload\s+form|call|show|return|import|handle|endhandle|using\s+namespace)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            e.ChangedRange.SetStyle(StructuralKeywords, @"^\s*(pml\s+reload\s+form|call|show|return|import|handle|elsehandle|endhandle|using\s+namespace)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             //conditionals and loops
             e.ChangedRange.SetStyle(StructuralKeywords, @"\b(if|else|elseif|endif|do|enddo|var|skip)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-            e.ChangedRange.SetStyle(StructuralKeywords, @"\s(then|from|index)\s", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            e.ChangedRange.SetStyle(StructuralKeywords, @"\s(then|from|index)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
             e.ChangedRange.SetStyle(StructuralKeywords, @"(?<=do\s.*\s)to", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             //variables
