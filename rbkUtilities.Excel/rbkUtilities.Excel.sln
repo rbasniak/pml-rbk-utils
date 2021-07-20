@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2EBC1F13-D267-4965-8980-CCB27594F714}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{D716244A-EF10-48FF-A102-957BEBF27E0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2017", "2017", "{5A1742CC-81EA-4C1A-8F6C-E8DAE259EC24}"
+	ProjectSection(SolutionItems) = preProject
+		..\sample\2017\B1-LFL-01-CAPTIVE.OUT = ..\sample\2017\B1-LFL-01-CAPTIVE.OUT
+		..\sample\2017\B1-LFL-01-CAPTIVE_full.OUT = ..\sample\2017\B1-LFL-01-CAPTIVE_full.OUT
+		..\sample\2017\B1-LFL-01-CAPTIVE_Restraint.OUT = ..\sample\2017\B1-LFL-01-CAPTIVE_Restraint.OUT
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2019", "2019", "{DA8FC124-A2C8-4703-88FF-2E1D80651293}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample1", "Sample1", "{31DF51CF-D3DB-4697-8E38-95944CBC6EB1}"
+	ProjectSection(SolutionItems) = preProject
+		..\sample\2019\L1-LFL-03-V8.0.OUT = ..\sample\2019\L1-LFL-03-V8.0.OUT
+		..\sample\2019\L1-LFL-03-V8.0_full.OUT = ..\sample\2019\L1-LFL-03-V8.0_full.OUT
+		..\sample\2019\L1-LFL-03-V8.0_Restraint.OUT = ..\sample\2019\L1-LFL-03-V8.0_Restraint.OUT
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample2", "Sample2", "{651A0B21-FB81-4F48-B678-2432BBCAFC0B}"
+	ProjectSection(SolutionItems) = preProject
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0.OUT
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0_full.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0_full.OUT
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0_restraint.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-HFL-01-V12.0_restraint.OUT
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample3", "Sample3", "{38BA2424-0071-4771-A2B4-EE4CF0D328A8}"
+	ProjectSection(SolutionItems) = preProject
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0.OUT
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0_full.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0_full.OUT
+		..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0_restraint.OUT = ..\sample\2019\B11-L1-Engineerin_ Upload_files\L1-LFL-03-V10.0_restraint.OUT
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rbkUtilities.Excel.Core", "rbkUtilities.Excel.Core\rbkUtilities.Excel.Core.csproj", "{FD1D198E-F62E-4C22-8527-2193FDAD8EEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rbkUtilities.Excel.Tests", "rbkUtilities.Excel.Tests\rbkUtilities.Excel.Tests.csproj", "{5FBD5D49-2366-4D4C-BF81-C8762265ACE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD1D198E-F62E-4C22-8527-2193FDAD8EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1D198E-F62E-4C22-8527-2193FDAD8EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1D198E-F62E-4C22-8527-2193FDAD8EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1D198E-F62E-4C22-8527-2193FDAD8EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBD5D49-2366-4D4C-BF81-C8762265ACE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBD5D49-2366-4D4C-BF81-C8762265ACE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBD5D49-2366-4D4C-BF81-C8762265ACE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBD5D49-2366-4D4C-BF81-C8762265ACE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D716244A-EF10-48FF-A102-957BEBF27E0C} = {2EBC1F13-D267-4965-8980-CCB27594F714}
+		{5A1742CC-81EA-4C1A-8F6C-E8DAE259EC24} = {D716244A-EF10-48FF-A102-957BEBF27E0C}
+		{DA8FC124-A2C8-4703-88FF-2E1D80651293} = {D716244A-EF10-48FF-A102-957BEBF27E0C}
+		{31DF51CF-D3DB-4697-8E38-95944CBC6EB1} = {DA8FC124-A2C8-4703-88FF-2E1D80651293}
+		{651A0B21-FB81-4F48-B678-2432BBCAFC0B} = {DA8FC124-A2C8-4703-88FF-2E1D80651293}
+		{38BA2424-0071-4771-A2B4-EE4CF0D328A8} = {DA8FC124-A2C8-4703-88FF-2E1D80651293}
+		{FD1D198E-F62E-4C22-8527-2193FDAD8EEC} = {2EBC1F13-D267-4965-8980-CCB27594F714}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8E902EE-AAFD-4553-A979-E605CDA678C2}
+	EndGlobalSection
+EndGlobal

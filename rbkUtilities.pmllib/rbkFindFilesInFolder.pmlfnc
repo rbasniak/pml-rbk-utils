@@ -9,7 +9,7 @@ $(
   to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
   The above copyright notice and this permission notice shall be included in all copies or substantial portions of
-  the Software. 
+  the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
   THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -56,7 +56,8 @@ define function !!rbkFindFilesInFolder(!path is STRING, !filename is STRING) is 
 
   -- Seach the file in all files directly under the folder
   do !i from 1 to !files.size()
-    if '$!normalizedPath$!filename' eq !files[!i].fullname() then
+    !name = '$!normalizedPath$!filename'
+    if !name.upcase() eq !files[!i].fullname().upcase() then
       !results.append('$!normalizedPath$!filename')
     endif
   enddo
