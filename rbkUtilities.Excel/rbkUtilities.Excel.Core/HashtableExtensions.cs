@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace rbkUtilities.Excel.Core
+namespace rbkPmlUtilities.Excel
 {
     public static class HashTableExtensions
     {

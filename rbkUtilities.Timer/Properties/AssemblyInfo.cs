@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: PMLNetCallable]
-[assembly: AssemblyTitle("rbkExcel")]
+[assembly: AssemblyTitle("rbkTimer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("rbkExcel")]
+[assembly: AssemblyProduct("rbkUtilities.Timer")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fd1d198e-f62e-4c22-8527-2193fdad8eec")]
+[assembly: Guid("1dd008b1-6790-4ef2-974e-2ff30927c134")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B05FC80-3804-4D2C-9A08-2215FD6959F8}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>rbkUtilities.Tester</RootNamespace>
-    <AssemblyName>rbkRunMacro.Tester</AssemblyName>
+    <ProjectGuid>{6493A75E-D5E5-495C-A6AA-092416AB790B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>rbkUtilities</RootNamespace>
+    <AssemblyName>rbkRunMacroControl</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,22 +17,34 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\output\debug\rbkUtilities\rbkRunMacro\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <AllowedReferenceRelatedFileExtensions>
+      <!-- Prevent default XML and PDB files copied to output in RELEASE.
+           Only *.allowedextension files will be included, which doesn't exist in my case.
+       -->
+      .allowedextension
+
+      <!-- or set to "-" to exclude all files -->
+      -
+    </AllowedReferenceRelatedFileExtensions>
     <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\output\release\rbkUtilities\rbkRunMacro\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FastColoredTextBox">
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
       <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -45,23 +57,32 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Aveva.Core">
+      <HintPath>$(AVEVA_DESIGN_DLL)\Aveva.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Aveva.Core.Database">
+      <HintPath>$(AVEVA_DESIGN_DLL)\Aveva.Core.Database.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Aveva.Core.Presentation">
+      <HintPath>$(AVEVA_DESIGN_DLL)\Aveva.Core.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PMLNet">
-      <HintPath>$(AVEVA_DESIGN_EXE)\PMLNet.dll</HintPath>
+      <HintPath>$(AVEVA_DESIGN_DLL)\PMLNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CodeEditor.Designer.cs">
-      <DependentUpon>CodeEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CodeEditor.resx">
-      <DependentUpon>CodeEditor.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="rbkRunMacroControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="rbkRunMacroControl.Designer.cs">
+      <DependentUpon>rbkRunMacroControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntaxHighlightService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,6 +93,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rbkRunMacroControl.resx">
+      <DependentUpon>rbkRunMacroControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,12 +106,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\rbkUtilities.RunMacro\rbkUtilities.RunMacro.csproj">
-      <Project>{6493a75e-d5e5-495c-a6aa-092416ab790b}</Project>
-      <Name>rbkUtilities.RunMacro</Name>
-    </ProjectReference>
+    <None Include="rbkRunMacro.pmlfrm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

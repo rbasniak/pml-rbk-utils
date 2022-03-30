@@ -16,7 +16,7 @@ using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
-namespace rbkUtilities
+namespace rbkUtilities.RunMacro
 {
     [PMLNetCallable]
     public partial class rbkRunMacroControl : UserControl

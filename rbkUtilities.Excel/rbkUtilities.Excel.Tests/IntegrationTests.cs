@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using rbkUtilities.Excel.Core;
+using rbkPmlUtilities.Excel;
+using rbkPmlUtilities.Excel;
 using Shouldly;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rbkUtilities.Excel.Core.Tests
+namespace rbkPmlUtilities.Excel.Tests
 {
     [TestClass]
     public class IntegrationTests
@@ -26,8 +27,8 @@ namespace rbkUtilities.Excel.Core.Tests
                 excel.AppendData("Sheet1", new[] { "SITE" + random.Next(1, 10), "ZONE" + random.Next(1, 10), "NAME" + random.Next(1, 10) }.ToHashtable());
             }
 
-            excel.SetSort(new[] { 1, 3, 2 }.ToHashtable());
-            excel.Generate(@"D:\Repositories\pessoal\libraries\rbk-pml-utils\rbkUtilities.Excel\rbkUtilities.Excel.Core\bin\Debug\test.xlsx", true).ShouldBe(true);
+            excel.SetSort("Sheet1", new[] { 1, 3, 2 }.ToHashtable());
+            excel.Generate(@"D:\Repositories\pessoal\libraries\rbk-pml-utils\rbkUtilities.Excel\rbkUtilities.Excel.Core\bin\Debug\test.xlsx", true);
         }
     }
 }

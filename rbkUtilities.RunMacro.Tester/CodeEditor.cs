@@ -1,4 +1,5 @@
 ﻿using FastColoredTextBoxNS;
+using rbkUtilities.RunMacro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

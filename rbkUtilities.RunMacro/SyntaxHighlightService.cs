@@ -11,7 +11,7 @@ using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace rbkUtilities
+namespace rbkUtilities.RunMacro
 {
     public class SyntaxHighlightService
     {

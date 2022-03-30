@@ -1,4 +1,4 @@
-﻿namespace rbkUtilities
+﻿namespace rbkUtilities.RunMacro
 {
     partial class rbkRunMacroControl
     {
