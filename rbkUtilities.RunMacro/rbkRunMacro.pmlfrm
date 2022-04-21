@@ -38,13 +38,13 @@ call !!rbkPmlNetImporter('rbkRunMacroControl', true)
 
 setup form !!rbkRunMacro resizable
   title 'Run Macro v1.0.4 - https://github.com/rbasniak'
-  using namespace 'rbkUtilities'
+  using namespace 'rbkUtilities.RunMacro'
   container .elementHost nobox PmlNetControl 'control' anchor all width 53.25 height 13.5
   member .control is rbkRunMacroControl
 exit
 
 define method .rbkRunMacro()
-  using namespace 'rbkUtilities'
+  using namespace 'rbkUtilities.RunMacro'
   !this.control = object rbkRunMacroControl()
   !this.elementHost.control = !this.control.handle()
   !this.control.addeventhandler('RunMacro', !this, 'run')
